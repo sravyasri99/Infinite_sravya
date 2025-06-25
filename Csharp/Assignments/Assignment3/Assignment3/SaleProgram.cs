@@ -26,20 +26,28 @@ namespace Assignment3
             TotalAmount = Quantity * Price;
         }
 
-        public static void ShowData()
+        public void ShowData()
         {
             Console.WriteLine("The SaleNo of the product is: {0} ", SaleNO);
             Console.WriteLine("The Product number is: {0}", ProductNo);
             Console.WriteLine("The Price of the product is: {0}", Price);
             Console.WriteLine("The Date of Sale of the product is : {0}", Dateofsale);
             Console.WriteLine("The quantity of the product is: {0}", Quantity);
-            Console.WriteLine("The total amount for the Product is: {0}", TotalAmount);
+            Console.WriteLine("The total Amount  is: {0}", TotalAmount);
+            Console.Read();
 
         }
     }
     class SaleProgram
     {
-        SaleDetails saleDetails = new SaleDetails(2,6645,2000,Convert.ToDateTime("25/06/2025"),5);
+
+        static void Main()
+        {
+            SaleDetails saleDetails = new SaleDetails(2, 6645, 2000, Convert.ToDateTime("25/06/2025"), 5);
+            saleDetails.Sales(5, 2000);
+            saleDetails.ShowData();
+        }
+
         
         
     }

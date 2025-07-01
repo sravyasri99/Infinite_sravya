@@ -1,0 +1,7 @@
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\bin\Debug\Assignment_4_Task.exe.config
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\bin\Debug\Assignment_4_Task.exe
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\bin\Debug\Assignment_4_Task.pdb
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\obj\Debug\Assignment_4_Task.csproj.AssemblyReference.cache
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\obj\Debug\Assignment_4_Task.csproj.CoreCompileInputs.cache
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\obj\Debug\Assignment_4_Task.exe
+C:\Users\sravyasrio\source\repos\Assignment_4_Task\Assignment_4_Task\obj\Debug\Assignment_4_Task.pdb

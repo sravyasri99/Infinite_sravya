@@ -76,7 +76,7 @@ class EmployeeProgram
         }
         catch
         {
-            Console.WriteLine("Wrong choice entered");
+            Console.WriteLine("Wrong details entered");
         }
     }
 

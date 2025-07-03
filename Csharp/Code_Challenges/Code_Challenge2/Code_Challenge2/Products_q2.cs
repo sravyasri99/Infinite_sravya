@@ -37,7 +37,9 @@ namespace Code_Challenge2
                 products.Add(new Product { ProductId = id, ProductName = name, Price = price });
             }
 
-            var sortedProducts = products.OrderBy(p => p.Price).ToList();
+            products.Sort((p1, p2) => p1.Price.CompareTo(p2.Price));
+
+            var sortedProducts = products;
 
             Console.WriteLine("\nThe Sorted Products are:");
            

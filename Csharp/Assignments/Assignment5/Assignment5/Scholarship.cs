@@ -56,7 +56,7 @@ namespace Assignment5
             try
             {
                 double scholarshipAmount = scholarship.Merit(marks, fees);
-                Console.WriteLine($"Scholarship Amount of the Student is: {scholarshipAmount}");
+                Console.WriteLine($"Scholarship Amount of the Student is : {scholarshipAmount}");
             }
             catch (ScholarshipNotApplicableException exc)
             {

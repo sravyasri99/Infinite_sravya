@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Code_Challenge2.EcxeptionProgram_q3</StartupObject>
+    <StartupObject>Code_Challenge2.Products_q2</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

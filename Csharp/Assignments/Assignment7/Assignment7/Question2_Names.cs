@@ -10,8 +10,10 @@ namespace Assignment7
     {
         static void Main()
         {
-            string[] names = new string[3];
-            Console.WriteLine("Enter any three different names:");
+            Console.WriteLine("Enter how many names you want to test:");
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] names = new string[n];
+            Console.WriteLine("Enter any  different names:");
             for(int i=0; i<names.Length; i++)
             {
                 names[i] = Console.ReadLine();

@@ -11,7 +11,9 @@ namespace Assignment7
     {
         static void Main()
         {
-            int[] numbers = new int[3];
+            Console.WriteLine("Enter how many numbers you want to test:");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] numbers = new int[n];
             Console.WriteLine("Enter any three numbers:");
             for(int i=0; i<numbers.Length; i++)
             {

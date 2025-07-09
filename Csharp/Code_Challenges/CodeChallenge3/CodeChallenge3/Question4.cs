@@ -30,10 +30,6 @@ namespace CodeChallenge3
             Console.Write("Enter the second number: ");
             int num2 = Convert.ToInt32(Console.ReadLine());
 
-            //Calculator.Operation add = new Calculator.Operation(Calculator.Add);
-            //Calculator.Operation subtract = new Calculator.Operation(Calculator.Subtract);
-            //Calculator.Operation multiply = new Calculator.Operation(Calculator.Multiply);
-
             Console.WriteLine("\n=======The Final Results are========");
             Console.WriteLine($"Addition: {Calculator.Functionality(Calculator.Add, num1, num2)}");
             Console.WriteLine($"Subtraction: {Calculator.Functionality(Calculator.Subtract, num1, num2)}");

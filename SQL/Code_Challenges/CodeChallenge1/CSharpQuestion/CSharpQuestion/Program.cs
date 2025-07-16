@@ -20,6 +20,7 @@ namespace CSharpQuestion
     {
         static void Main(string[] args)
         {
+            
             List<Employee_Details> empList = new List<Employee_Details>();
 
             Console.Write("Enter the number of employees in the list: ");
@@ -59,13 +60,27 @@ namespace CSharpQuestion
             }
 
             var nonMumbaiEmployees = empList.Where(emp => emp.City != "Mumbai");
-            Console.WriteLine($"Details of all the employee whose location is not Mumbai are: {nonMumbaiEmployees}");
+
+            Console.WriteLine("\nDetails of all the employees whose location is not Mumbai:");
+            foreach (var emp in nonMumbaiEmployees)
+            {
+                Console.WriteLine($"{emp.EmployeeID} | {emp.FirstName} {emp.LastName} | {emp.Title} | {emp.City}");
+            }
+
 
             var asstManagers = empList.Where(emp => emp.Title == "AsstManager");
-            Console.WriteLine($"details of all the employee whose title is AsstManager are : {asstManagers}");
+            Console.WriteLine($"\ndetails of all the employee whose title is AsstManager are :");
+            foreach (var emp in asstManagers)
+            {
+                Console.WriteLine($"{emp.EmployeeID} | {emp.FirstName} {emp.LastName} | {emp.Title} | {emp.City}");
+            }
 
             var lastNameStartsWithS = empList.Where(emp => emp.LastName.StartsWith("S"));
-            Console.WriteLine($"details of all the employee whose Last Name start with S are : {lastNameStartsWithS}");
+            Console.WriteLine($"\ndetails of all the employee whose Last Name start with S are :");
+            foreach (var emp in lastNameStartsWithS)
+            {
+                Console.WriteLine($"{emp.EmployeeID} | {emp.FirstName} {emp.LastName} | {emp.Title} | {emp.City}");
+            }
 
             Console.Read();
         }

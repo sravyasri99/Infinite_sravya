@@ -1,0 +1,7 @@
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\bin\Debug\CSharpQuestion.exe.config
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\bin\Debug\CSharpQuestion.exe
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\bin\Debug\CSharpQuestion.pdb
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\obj\Debug\CSharpQuestion.csproj.AssemblyReference.cache
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\obj\Debug\CSharpQuestion.csproj.CoreCompileInputs.cache
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\obj\Debug\CSharpQuestion.exe
+C:\Infinite_training\SQL\Code_Challenges\CodeChallenge1\CSharpQuestion\CSharpQuestion\obj\Debug\CSharpQuestion.pdb

@@ -130,4 +130,3 @@ WHERE SALARY IS NULL;
 
 SELECT Gender, COUNT(*) AS 'Total Count' FROM Studentdetails
 GROUP BY Gender;
-

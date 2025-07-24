@@ -31,7 +31,7 @@ begin
     set @GrossSalary = @Salary + @HRA + @DA
     set @NetSalary = @GrossSalary - @Deductions
 
-    print '------------ All the Details Employee Payslip -----------'
+    print '------------ All the Details of Employee Payslip -----------'
     print 'Employee ID    : ' + cast(@empid as varchar)
     print 'Employee Name  : ' + @empname
     print 'Current Salary : ' + cast(@Salary as varchar)
@@ -47,6 +47,8 @@ end
 
 exec payslip_generation @empid = 101
 
+
+
 --Query 2 
 drop table holidays
 create table holidays (
@@ -61,7 +63,7 @@ insert into holidays values
 
 create or alter trigger trg_block_dml_on_holiday
 on emp
-after insert, update, delete
+instead of insert, update, delete
 as
 begin
     declare @today date = cast(getdate() as date)

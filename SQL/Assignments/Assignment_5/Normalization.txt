@@ -1,0 +1,34 @@
+1.Client Table --2nf
+
+clientNo    | cName
+------------|-------------
+CR76        | John Kay
+CR56        | Aline Stewart
+
+2.Property Table --2nf
+
+propertyNo  | pAddress               | rent | ownerNo
+------------|------------------------|------|---------
+PG4         | 6 Lawrence St, Glasgow | 350  | C040
+PG16        | 5 Novar Dr, Glasgow    | 450  | C093
+PG36        | 2 Manor Rd, Glasgow    | 370  | C093
+
+
+3.Owner Table --2nf
+
+ownerNo     | oName
+------------|---------
+C040        | Tina Murphy
+C093        | Tony Shaw
+
+
+4. Rental Table --3nf
+
+clientNo | propertyNo | rentStart  | rentFinish
+---------|------------|------------|-------------
+CR76     | PG4        | 1-Jul-00   | 31-Aug-01
+CR76     | PG16       | 1-Sep-02   | 1-Sep-02
+CR56     | PG4        | 1-Sep-99   | 10-Jun-00
+CR56     | PG36       | 10-Oct-00  | 1-Dec-01
+CR56     | PG16       | 1-Nov-02   | 1-Aug-03
+

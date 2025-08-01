@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D347E354-3683-4CEB-B59C-1C67917D51B6}</ProjectGuid>
+    <ProjectGuid>{FFF0FD7F-5CA7-4BAD-85AF-2D1FB3044949}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Assignment1</RootNamespace>
-    <AssemblyName>Assignment1</AssemblyName>
+    <RootNamespace>Assignment2</RootNamespace>
+    <AssemblyName>Assignment2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTMLPage1.html" />
+    <Content Include="HTMLPage2.html" />
+    <Content Include="Question1.html" />
+    <Content Include="Question2.html" />
+    <Content Include="Question3.html" />
+    <Content Include="Question4.html" />
+    <Content Include="Question5.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

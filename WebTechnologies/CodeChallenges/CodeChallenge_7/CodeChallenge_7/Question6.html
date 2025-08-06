@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Show Second Element</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Hiding all <li> elements
+            $("li").hide();
+
+            //  to Show only the second element  (index 1)
+            $("li").eq(1).show();
+
+            // Add a heading above the list
+            $("ul").before("<h2>Selected Item</h2>");
+        });
+    </script>
+</head>
+    <body>
+
+        <ul>
+            <li>CSHARP</li>
+            <li>SQL</li>
+            <li>ADO</li>
+        </ul>
+
+    </body>
+</html>

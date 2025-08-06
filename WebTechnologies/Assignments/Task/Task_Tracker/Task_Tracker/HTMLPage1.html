@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Task Tracker</title>
+        <style>
+
+            body {
+                background-color: #f7f9fc;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 60px 20px;
+            }
+
+            .app {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                width: 340px;
+                padding: 30px;
+            }
+
+            h2 {
+                margin-top: 0;
+                text-align: center;
+                color: #333;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #3d7ef1;
+                border: none;
+                color: #fff;
+                font-size: 14px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+                button:hover {
+                    background-color: #295dc3;
+                }
+
+            ul {
+                margin-top: 20px;
+                padding-left: 0;
+                list-style-type: none;
+            }
+
+            li {
+                background-color: #f1f1f1;
+                border-radius: 8px;
+                padding: 8px 12px;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .task-text {
+                flex: 1;
+                padding-left: 10px;
+            }
+
+            .task-complete {
+                accent-color: #3d7ef1;
+                transform: scale(1.2);
+            }
+
+            .delete-btn {
+                background: none;
+                border: none;
+                color: #d10000;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .task-completed .task-text {
+                text-decoration: line-through;
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="app">
+            <h2>Task Tracker</h2>
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button id="addBtn">Add Task</button>
+            <ul id="taskList"></ul>
+        </div>
+
+        <script>
+
+    const taskInput = document.getElementById('taskInput');
+
+    const addBtn = document.getElementById('addBtn');
+
+    const taskList = document.getElementById('taskList');
+
+    addBtn.addEventListener('click', () => {
+
+      const task = taskInput.value.trim();
+
+      if (task !== '') {
+
+        const li = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+
+        checkbox.type = 'checkbox';
+
+        checkbox.className = 'task-complete';
+
+        const span = document.createElement('span');
+
+        span.className = 'task-text';
+
+        span.textContent = task;
+
+        const del = document.createElement('button');
+
+        del.textContent = '✕';
+
+        del.className = 'delete-btn';
+
+        checkbox.addEventListener('change', () => {
+
+          li.classList.toggle('task-completed', checkbox.checked);
+
+        });
+
+        del.addEventListener('click', () => {
+
+          li.remove();
+
+        });
+
+        li.appendChild(checkbox);
+
+        li.appendChild(span);
+
+        li.appendChild(del);
+
+        taskList.appendChild(li);
+
+        taskInput.value = '';
+
+      }
+
+    });
+        </script>
+
+    </body>
+</html>
+

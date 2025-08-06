@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+        <title>Checking Even Number or Odd Numebr</title>
+    </head>
+    <body>
+        <h2>Checking Even Number or Odd Numebr From 0 to 15</h2>
+        <div id="output"></div>
+
+    <script>
+    const outputDiv = document.getElementById("output");
+
+    for (let i = 0; i <= 15; i++) {
+      let type = (i % 2 === 0) ? "even" : "odd";
+      let message = `"${i} is ${type}"`;
+
+      // To Display the each message on a new line
+      let p = document.createElement("p");
+      p.textContent = message;
+      outputDiv.appendChild(p);
+    }
+    </script>
+    </body>
+</html>

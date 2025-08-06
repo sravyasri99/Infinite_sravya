@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Append on Input Change</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>$(document).ready(function () {
+      $("input").on("change", function () {
+        $("body").append("<p>You changed the input to: " + $(this).val() + "</p>");
+      });
+    });</script>
+    </head>
+    <body>
+
+        <h2>Type something and press enter or click outside</h2>
+        <input type="text" placeholder="Type here..." />
+
+    </body>
+</html>

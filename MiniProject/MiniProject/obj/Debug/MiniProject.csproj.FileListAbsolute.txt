@@ -1,0 +1,7 @@
+C:\sravya_practice\MiniProject\MiniProject\bin\Debug\MiniProject.exe.config
+C:\sravya_practice\MiniProject\MiniProject\bin\Debug\MiniProject.exe
+C:\sravya_practice\MiniProject\MiniProject\bin\Debug\MiniProject.pdb
+C:\sravya_practice\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.AssemblyReference.cache
+C:\sravya_practice\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CoreCompileInputs.cache
+C:\sravya_practice\MiniProject\MiniProject\obj\Debug\MiniProject.exe
+C:\sravya_practice\MiniProject\MiniProject\obj\Debug\MiniProject.pdb

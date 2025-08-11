@@ -78,7 +78,7 @@ namespace MiniProject
                     {
                         int cancelled = Convert.ToInt32(reader["Cancelled"]);
                         decimal refunds = reader["Refunds"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["Refunds"]);
-                        Console.WriteLine($"Tickets Cancelled: {cancelled}, Total Refunds: ₹{refunds}");
+                        Console.WriteLine($"Tickets Cancelled: {cancelled}, Total Refunds: {refunds}");
                     }
                 }
 

@@ -35,7 +35,7 @@ namespace MiniProject
 
                         Console.WriteLine("\n Ticket cancelled.");
                         Console.WriteLine($"Refund Rate Applied: {rate}%");
-                        Console.WriteLine($"Refund Amount: ₹{refund}");
+                        Console.WriteLine($"Refund Amount: {refund}");
                         Console.WriteLine($"Updated Reservation Status: {status}");
                     }
                     else

@@ -10,19 +10,21 @@ namespace MiniProject
 {
     public class CancellationManager
     {
-        public void CancelTicket()
+        public void CancelTicket(string userRole)
         {
             Console.Write("Reservation ID: ");
             int rid = int.Parse(Console.ReadLine());
 
             Console.Write("How many seats to cancel? ");
             int seats = int.Parse(Console.ReadLine());
+
             using (SqlConnection conn = Database.GetConnection())
             using (SqlCommand cmd = new SqlCommand("CancelTicket", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ReservationID", rid);
                 cmd.Parameters.AddWithValue("@SeatsToCancel", seats);
+                cmd.Parameters.AddWithValue("@UserRole", userRole);  //  Pass role
 
                 conn.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -45,6 +47,7 @@ namespace MiniProject
                 }
             }
         }
+
     }
 
 }

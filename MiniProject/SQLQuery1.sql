@@ -59,7 +59,9 @@ CREATE OR ALTER PROCEDURE ReserveTicket
     @Class VARCHAR(20),
     @DateOfJourney DATE,
     @SeatsBooked INT,
-    @ReservationID INT OUTPUT  --  Add this line
+    @NetAmount DECIMAL(10,2),         
+    @DiscountAmount DECIMAL(10,2),    
+    @ReservationID INT OUTPUT
 AS
 BEGIN
     DECLARE @Cost DECIMAL(10,2),
@@ -80,7 +82,9 @@ BEGIN
         Class, 
         DateOfJourney, 
         SeatsBooked, 
-        TotalCost, 
+        TotalCost,         -- Original fare before discount
+        DiscountAmount,    --  New column
+        NetAmount,         --  Final amount after discount
         BookingDate
     )
     VALUES (
@@ -91,10 +95,11 @@ BEGIN
         @DateOfJourney, 
         @SeatsBooked, 
         @TotalCost, 
+        @DiscountAmount, 
+        @NetAmount, 
         GETDATE()
     )
 
-    -- Capture the newly inserted ReservationID
     SET @ReservationID = SCOPE_IDENTITY()
 
     UPDATE Trains
@@ -107,14 +112,15 @@ END
 
 CREATE OR ALTER PROCEDURE CancelTicket
     @ReservationID INT,
-    @SeatsToCancel INT
+    @SeatsToCancel INT,
+    @UserRole VARCHAR(20)  -- New parameter
 AS
 BEGIN
     SET NOCOUNT ON;
 
     DECLARE 
         @TotalSeats INT, 
-        @TotalCost DECIMAL(10,2), 
+        @NetAmount DECIMAL(10,2),  -- Changed from TotalCost
         @TrainNo INT, 
         @Class VARCHAR(20), 
         @DateOfJourney DATE,
@@ -126,7 +132,7 @@ BEGIN
     -- Fetch reservation details
     SELECT 
         @TotalSeats = SeatsBooked,
-        @TotalCost = TotalCost,
+        @NetAmount = NetAmount,  --  Use actual paid amount
         @TrainNo = TrainNo,
         @Class = Class,
         @DateOfJourney = DateOfJourney
@@ -143,14 +149,16 @@ BEGIN
     -- Calculate days before journey
     SET @DaysBeforeJourney = DATEDIFF(DAY, GETDATE(), @DateOfJourney);
 
-    -- Determine refund rate
-    IF @DaysBeforeJourney >= 2
+    -- Determine refund rate based on role
+    IF @UserRole = 'Admin'
+        SET @RefundRate = 1.0;  -- 100% refund
+    ELSE IF @DaysBeforeJourney >= 2
         SET @RefundRate = 0.80;
     ELSE
         SET @RefundRate = 0.50;
 
-    -- Calculate refund amount
-    SET @RefundAmount = (@TotalCost / @TotalSeats) * @SeatsToCancel * @RefundRate;
+    -- Calculate refund amount based on NetAmount
+    SET @RefundAmount = (@NetAmount / @TotalSeats) * @SeatsToCancel * @RefundRate;
 
     -- Insert cancellation record
     INSERT INTO Cancellations (
@@ -192,8 +200,11 @@ BEGIN
     SELECT 
         @RefundRate * 100 AS RefundRatePercent,
         @RefundAmount AS RefundAmount,
-        @NewStatus AS NewStatus;
+        @NewStatus AS NewStatus,
+        @NetAmount AS NetAmountUsedForRefund;
 END
+
+
 
 
 
@@ -218,6 +229,7 @@ INSERT INTO Users (UserId, Password, Role) VALUES
 
 SELECT * FROM Reservations
 SELECT * FROM Trains
+SELECT * FROM Customers
 
 ALTER TABLE Reservations ADD CustomerName VARCHAR(100);
 
@@ -232,3 +244,7 @@ UPDATE Trains SET Availability = 50;
 ALTER TABLE Trains ADD IsActive BIT DEFAULT 1;
 
 UPDATE Trains SET IsActive = 1 WHERE IsActive IS NULL;
+
+ALTER TABLE Reservations
+ADD DiscountAmount DECIMAL(10,2),
+    NetAmount DECIMAL(10,2);

@@ -17,10 +17,16 @@ namespace MiniProject
     public class UserManager
     {
         public string Role = "";
-
-        public bool Login()
+        public string LoginForTest(string expectedRole)
         {
-            Console.Write("User ID: "); string uid = Console.ReadLine();
+            bool success = Login(expectedRole);
+            return success ? Role : "Invalid";
+        }
+
+        public bool Login(string expectedRole)
+        {
+            Console.Write("User ID: ");
+            string uid = Console.ReadLine();
 
             using (SqlConnection conn = Database.GetConnection())
             {
@@ -40,10 +46,18 @@ namespace MiniProject
 
                 Role = roleResult.ToString();
 
-                // Step 2: If role is not Customer, ask for password and validate
-                if (Role != "Customer")
+                // Step 2: Check if role matches expected
+                if (!string.Equals(Role, expectedRole, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.Write("Password: "); string pwd = Console.ReadLine();
+                    Console.WriteLine($"Access denied. You are not a {expectedRole}.");
+                    return false;
+                }
+
+                // Step 3: If Admin, ask for password
+                if (Role == "Admin")
+                {
+                    Console.Write("Password: ");
+                    string pwd = Console.ReadLine();
 
                     string authQuery = "SELECT COUNT(*) FROM Users WHERE UserId = @id AND Password = @pwd";
                     SqlCommand authCmd = new SqlCommand(authQuery, conn);
@@ -63,97 +77,169 @@ namespace MiniProject
                 return true;
             }
         }
-    }
 
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
-            UserManager um = new UserManager();
-            if (!um.Login()) return;
-
-            Console.WriteLine($"\nWelcome  {um.Role}");
-            Console.WriteLine($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}");
-
-            CustomerManager cm = new CustomerManager();
-            TrainManager tm = new TrainManager();
-            ReservationManager rm = new ReservationManager();
-            CancellationManager cancel = new CancellationManager();
-            ReportManager report = new ReportManager();
-
-            while (true)
+            while (true) //  Outer loop for login cycle
             {
-                Console.WriteLine("\n====================================");
-                Console.WriteLine("     Railway Reservation System     ");
-                Console.WriteLine("====================================");
-                Console.WriteLine("1. Register Customer");
-                Console.WriteLine("2. Add Train (Admin Only)");
-                Console.WriteLine("3. Reserve Ticket");
-                Console.WriteLine("4. Cancel Ticket");
-                Console.WriteLine("5. Show Complete Report");
-                Console.WriteLine("6. Soft Delete Train/Class (Admin Only)");
-                Console.WriteLine("7. Exit");
-                Console.Write("Select an option (1-7): ");
-                string opt = Console.ReadLine();
+                Console.WriteLine("Welcome to Railway Reservation System");
+                Console.Write("Are you logging in as Admin or Customer? (A/C): ");
+                string roleChoice = Console.ReadLine().Trim().ToUpper();
 
-                switch (opt)
+                UserManager um = new UserManager();
+
+                if (roleChoice == "A")
                 {
-                    case "1": cm.RegisterCustomer(); break;
-                    case "2":
-                        if (um.Role == "Admin") tm.AddTrain();
-                        else Console.WriteLine("Access denied. Admin only.");
-                        break;
-                    case "3": rm.ReserveTicket(); break;
-                    case "4": cancel.CancelTicket(); break;
-                    case "5":
-                        Console.WriteLine($"\nGenerating report for role: {um.Role}");
-                        report.ShowReport(um.Role);
-                        break;
-                    case "6":
-                        if (um.Role == "Admin")
-                        {
-                            SoftDeleteManager sdm = new SoftDeleteManager();
-                            Console.WriteLine("\n--- Soft Delete Options ---");
-                            Console.WriteLine("a. Soft Delete Train Class");
-                            Console.WriteLine("b. Soft Delete Entire Train");
-                            Console.Write("Choose an option (a/b): ");
-                            string delChoice = Console.ReadLine().Trim().ToLower();
+                    Console.WriteLine("\n--- Admin Login ---");
+                    if (!um.Login("Admin")) continue;
+                }
+                else if (roleChoice == "C")
+                {
+                    Console.WriteLine("\n--- Customer Login ---");
+                    if (!um.Login("Customer")) continue;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid role selection.");
+                    continue;
+                }
 
-                            if (delChoice == "a")
+                Console.WriteLine($"\nWelcome {um.Role}");
+                Console.WriteLine($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}");
+
+                CustomerManager cm = new CustomerManager();
+                TrainManager tm = new TrainManager();
+                ReservationManager rm = new ReservationManager();
+                CancellationManager cancel = new CancellationManager();
+                ReportManager report = new ReportManager();
+
+                bool stayLoggedIn = true;
+                while (stayLoggedIn)
+                {
+                    Console.WriteLine("\n====================================");
+                    Console.WriteLine("     Railway Reservation System     ");
+                    Console.WriteLine("====================================");
+                    Console.WriteLine("1. Register Customer");
+                    Console.WriteLine("2. Reserve Ticket");
+                    Console.WriteLine("3. Cancel Ticket");
+                    Console.WriteLine("4. Print Particular Ticket");
+                    Console.WriteLine("5. View My Reservations");
+                    Console.WriteLine("6. Show Complete Report(Admin or User Specific)");
+                    Console.WriteLine("7. Add Train (Admin Only)");
+                    Console.WriteLine("8. Soft Delete Train/Class (Admin Only)");
+                    Console.WriteLine("9. Return to login page");
+                    Console.WriteLine("10.Exit Application");
+                    Console.Write("Select an option (1-9): ");
+                    string opt = Console.ReadLine();
+
+                    switch (opt)
+                    {
+                        case "1":
+                            cm.RegisterCustomer();
+                            break;
+                        
+                        case "2":
+                            rm.ReserveTicket(um.Role);
+                            break;
+                        case "3":
+                            cancel.CancelTicket(um.Role);
+                            break;
+                        case "4":
+                            Console.Write("Enter Reservation ID to print ticket: ");
+                            int rid = int.Parse(Console.ReadLine());
+                            report.PrintTicket(rid);
+                            break;
+                        case "5":
+                            Console.Write("Enter your CustomerID to view reservations: ");
+                            int viewCid = int.Parse(Console.ReadLine());
+                            report.ShowCustomerReservations(viewCid);
+                            break;
+                        case "6":
+                            Console.WriteLine($"\nGenerating report for role: {um.Role}");
+                            report.ShowReport(um.Role);
+                            break;
+                        case "7":
+                            if (um.Role == "Admin") tm.AddTrain();
+                            else Console.WriteLine("Access denied. Admin only.");
+                            break;
+                        case "8":
+                            if (um.Role == "Admin")
                             {
-                                Console.Write("Enter TrainNo: ");
-                                int tnoClass = int.Parse(Console.ReadLine());
-                                Console.Write("Enter Class to delete: ");
-                                string clsToDelete = Console.ReadLine();
-                                sdm.SoftDeleteTrainClass(tnoClass, clsToDelete);
-                            }
-                            else if (delChoice == "b")
-                            {
-                                Console.Write("Enter TrainNo to delete: ");
-                                int tnoTrain = int.Parse(Console.ReadLine());
-                                sdm.SoftDeleteEntireTrain(tnoTrain);
+                                SoftDeleteManager sdm = new SoftDeleteManager();
+                                Console.WriteLine("\n--- Soft Delete / Restore Options ---");
+                                Console.WriteLine("a. Soft Delete Train Class");
+                                Console.WriteLine("b. Soft Delete Entire Train");
+                                Console.WriteLine("c. Restore Train Class");
+                                Console.WriteLine("d. Restore Entire Train");
+                                Console.Write("Choose an option (a/b/c/d): ");
+                                string delChoice = Console.ReadLine().Trim().ToLower();
+
+                                switch (delChoice)
+                                {
+                                    case "a":
+                                        Console.Write("Enter TrainNo: ");
+                                        int tnoClass = int.Parse(Console.ReadLine());
+                                        Console.Write("Enter Class to delete: ");
+                                        string clsToDelete = Console.ReadLine();
+                                        sdm.SoftDeleteTrainClass(tnoClass, clsToDelete);
+                                        break;
+
+                                    case "b":
+                                        Console.Write("Enter TrainNo to delete: ");
+                                        int tnoTrain = int.Parse(Console.ReadLine());
+                                        sdm.SoftDeleteEntireTrain(tnoTrain);
+                                        break;
+
+                                    case "c":
+                                        Console.Write("Enter TrainNo: ");
+                                        int tnoRestoreClass = int.Parse(Console.ReadLine());
+                                        Console.Write("Enter Class to restore: ");
+                                        string clsToRestore = Console.ReadLine();
+                                        sdm.RestoreTrainClass(tnoRestoreClass, clsToRestore);
+                                        break;
+
+                                    case "d":
+                                        Console.Write("Enter TrainNo to restore: ");
+                                        int tnoRestoreTrain = int.Parse(Console.ReadLine());
+                                        sdm.RestoreEntireTrain(tnoRestoreTrain);
+                                        break;
+
+                                    default:
+                                        Console.WriteLine("Invalid option.");
+                                        break;
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("Invalid soft delete option.");
+                                Console.WriteLine("Access denied. Admin only.");
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Access denied. Admin only.");
-                        }
-                        break;
-                    case "7":
-                        Console.Write("Are you sure you want to exit? (Y/N): ");
-                        string exitChoice = Console.ReadLine().Trim().ToUpper();
-                        if (exitChoice == "Y") return;
-                        break;
-                    default: Console.WriteLine("Invalid option. Please select between 1 and 7."); break;
-
+                            break;
+                       
+                        case "9":
+                            Console.WriteLine("Logging out and returning to login screen...\n");
+                            stayLoggedIn = false; //  Return to login
+                            break;
+                        case "10":
+                            Console.Write("Are you sure you want to exit the application? (Y/N): ");
+                            string confirmExit = Console.ReadLine().Trim().ToUpper();
+                            if (confirmExit == "Y")
+                            {
+                                Console.WriteLine("Exiting application. Goodbye!");
+                                Environment.Exit(0); //  Terminate program
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please select between 1 and 9.");
+                            break;
+                    }
                 }
             }
         }
     }
+
 
 }

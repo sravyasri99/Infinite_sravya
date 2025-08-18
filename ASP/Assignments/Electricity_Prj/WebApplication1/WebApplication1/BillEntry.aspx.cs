@@ -38,12 +38,15 @@ namespace WebApplication1
             {
                 ElectricityBill temp = new ElectricityBill();
                 temp.ConsumerNumber = cno; // This will throw FormatException if invalid
+
                 ViewState["ConsumerNumber"] = cno;
+                lblResult.Text = ""; //  Clear previous error message
 
                 lblStep3Info.Text = $"Consumer Number: <b>{cno}</b>";
                 pnlStep2.Visible = false;
                 pnlStep3.Visible = true;
             }
+
             catch (FormatException)
             {
                 lblResult.Text = "Given Consumer Number is invalid. Please enter again.";
@@ -97,6 +100,9 @@ namespace WebApplication1
             var billList = (List<ElectricityBill>)ViewState["BillList"];
             billList.Add(eb);
             ViewState["BillList"] = billList;
+
+            // Before adding bill info
+            lblResult.Text = ""; // ✅ Clear previous error
 
             lblResult.Text += $"{eb.ConsumerNumber} {eb.ConsumerName} {eb.UnitsConsumed} Bill Amount : {eb.BillAmount:0.##}<br/>";
 

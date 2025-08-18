@@ -1,0 +1,5 @@
+﻿<asp:TextBox runat="server" CssClass="eb-text" />
+<asp:Button runat="server" CssClass="eb-btn" />
+<asp:Label runat="server" CssClass="eb-label" />
+<asp:GridView runat="server" CssClass="eb-grid" />
+<asp:ValidationSummary runat="server" CssClass="eb-valsum" />

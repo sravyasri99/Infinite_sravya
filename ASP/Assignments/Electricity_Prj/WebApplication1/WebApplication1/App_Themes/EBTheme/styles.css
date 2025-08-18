@@ -1,0 +1,44 @@
+﻿.eb-text {
+    padding: 6px;
+    width: 260px;
+}
+
+.eb-btn {
+    padding: 8px 14px;
+    margin: 6px 0;
+}
+
+.eb-grid {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+    .eb-grid td, .eb-grid th {
+        padding: 6px;
+        border: 1px solid #ddd;
+    }
+
+.eb-label {
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.eb-valsum {
+    color: #b00020;
+    margin: 8px 0;
+}
+
+.container {
+    max-width: 860px;
+    margin: 30px auto;
+    font-family: Segoe UI, Arial, sans-serif;
+}
+
+.heading {
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.row {
+    margin: 8px 0;
+}

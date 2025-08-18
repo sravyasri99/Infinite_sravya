@@ -1,0 +1,16 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.Site" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+  <title>Electricity Board Billing</title>
+  <link rel="stylesheet" href="App_Themes/EBTheme/styles.css" />
+</head>
+<body>
+  <form id="form1" runat="server">
+    <div class="container">
+      <div class="heading">Electricity Board Billing Automation</div>
+      <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+  </form>
+</body>
+</html>

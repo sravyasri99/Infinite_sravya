@@ -1,0 +1,19 @@
+﻿@model MVC_CodeFirst.Models.Movie
+@{
+    ViewBag.Title = "Delete Movie";
+}
+<h2>Delete Movie</h2>
+
+<p>Are you sure you want to delete this movie?</p>
+
+<ul>
+    <li><strong>Name:</strong> @Model.Moviename</li>
+    <li><strong>Director:</strong> @Model.DirectorName</li>
+    <li><strong>Release Date:</strong> @Model.DateofRelease.ToShortDateString()</li>
+</ul>
+
+@using (Html.BeginForm("Delete", "Movies", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Mid)
+    <input type="submit" value="Delete" />
+}

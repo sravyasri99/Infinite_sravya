@@ -1,0 +1,7 @@
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\obj\Debug\ConnectedADO.csproj.AssemblyReference.cache
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\obj\Debug\ConnectedADO.csproj.CoreCompileInputs.cache
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\bin\Debug\ConnectedADO.exe.config
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\bin\Debug\ConnectedADO.exe
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\bin\Debug\ConnectedADO.pdb
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\obj\Debug\ConnectedADO.exe
+C:\sravya_practice\ADO\ConnectedADO\ConnectedADO\obj\Debug\ConnectedADO.pdb

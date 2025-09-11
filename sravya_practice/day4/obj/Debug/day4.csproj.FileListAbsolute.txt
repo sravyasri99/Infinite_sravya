@@ -1,0 +1,7 @@
+C:\sravya_practice\day4\bin\Debug\day4.exe.config
+C:\sravya_practice\day4\bin\Debug\day4.exe
+C:\sravya_practice\day4\bin\Debug\day4.pdb
+C:\sravya_practice\day4\obj\Debug\day4.csproj.AssemblyReference.cache
+C:\sravya_practice\day4\obj\Debug\day4.csproj.CoreCompileInputs.cache
+C:\sravya_practice\day4\obj\Debug\day4.exe
+C:\sravya_practice\day4\obj\Debug\day4.pdb

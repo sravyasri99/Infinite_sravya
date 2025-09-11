@@ -1,0 +1,12 @@
+C:\sravya_practice\Day13\Day13\bin\Debug\Day13.exe.config
+C:\sravya_practice\Day13\Day13\bin\Debug\Day13.exe
+C:\sravya_practice\Day13\Day13\bin\Debug\Day13.pdb
+C:\sravya_practice\Day13\Day13\obj\Debug\Day13.csproj.AssemblyReference.cache
+C:\sravya_practice\Day13\Day13\obj\Debug\Day13.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Day13\Day13\obj\Debug\Day13.exe
+C:\sravya_practice\Day13\Day13\obj\Debug\Day13.pdb
+C:\sravya_practice\Day13\Day13\bin\Debug\LibPrj1.dll
+C:\sravya_practice\Day13\Day13\bin\Debug\LibPrj2.dll
+C:\sravya_practice\Day13\Day13\bin\Debug\LibPrj1.pdb
+C:\sravya_practice\Day13\Day13\bin\Debug\LibPrj2.pdb
+C:\sravya_practice\Day13\Day13\obj\Debug\Day13.csproj.CopyComplete

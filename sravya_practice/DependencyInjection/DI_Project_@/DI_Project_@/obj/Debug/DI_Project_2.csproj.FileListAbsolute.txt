@@ -1,0 +1,7 @@
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\bin\Debug\DI_Project_@.exe.config
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\bin\Debug\DI_Project_@.exe
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\bin\Debug\DI_Project_@.pdb
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\obj\Debug\DI_Project_2.csproj.AssemblyReference.cache
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\obj\Debug\DI_Project_2.csproj.CoreCompileInputs.cache
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\obj\Debug\DI_Project_@.exe
+C:\sravya_practice\DependencyInjection\DI_Project_@\DI_Project_@\obj\Debug\DI_Project_@.pdb

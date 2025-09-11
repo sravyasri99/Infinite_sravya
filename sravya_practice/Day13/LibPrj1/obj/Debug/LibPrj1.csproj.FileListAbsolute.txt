@@ -1,0 +1,6 @@
+C:\sravya_practice\Day13\LibPrj1\bin\Debug\LibPrj1.dll
+C:\sravya_practice\Day13\LibPrj1\bin\Debug\LibPrj1.pdb
+C:\sravya_practice\Day13\LibPrj1\obj\Debug\LibPrj1.csproj.AssemblyReference.cache
+C:\sravya_practice\Day13\LibPrj1\obj\Debug\LibPrj1.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Day13\LibPrj1\obj\Debug\LibPrj1.dll
+C:\sravya_practice\Day13\LibPrj1\obj\Debug\LibPrj1.pdb

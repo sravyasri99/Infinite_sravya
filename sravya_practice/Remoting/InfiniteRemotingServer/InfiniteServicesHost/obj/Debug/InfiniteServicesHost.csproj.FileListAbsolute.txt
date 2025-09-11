@@ -1,0 +1,10 @@
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\bin\Debug\InfiniteServicesHost.exe.config
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\bin\Debug\InfiniteServicesHost.exe
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\bin\Debug\InfiniteServicesHost.pdb
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\bin\Debug\InfiniteRemotingServer.dll
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\bin\Debug\InfiniteRemotingServer.pdb
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\obj\Debug\InfiniteServicesHost.csproj.AssemblyReference.cache
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\obj\Debug\InfiniteServicesHost.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\obj\Debug\InfiniteServicesHost.csproj.CopyComplete
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\obj\Debug\InfiniteServicesHost.exe
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteServicesHost\obj\Debug\InfiniteServicesHost.pdb

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC_DatabaseFirst.Models.CustOrdersOrders_Result>
+
+@{ ViewBag.Title = "Get Order Details"; }
+
+<h2>Enter Customer ID</h2>
+
+<form action="/Shipper/GetOrderDetails" method="post">
+    <div style="margin-bottom:10px;">
+        <label style="font-weight:bold;">Customer ID:</label>
+        <input type="text" name="CustomerID" style="padding:5px; width:200px;" />
+    </div>
+    <div>
+        <input type="submit" value="Get Orders" style="background-color:#007bff; color:white; padding:5px 10px; border:none;" />
+    </div>
+</form>
+
+<hr />
+
+@if (Model?.Any() == true)
+{
+<h2>Order Details</h2>
+                <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%;">
+                    <tr style="background-color:#f2f2f2;">
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Required Date</th>
+                        <th>Shipped Date</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+    <tr>
+        <td>@item.OrderID</td>
+        <td>@item.OrderDate?.ToShortDateString()</td>
+        <td>@item.RequiredDate?.ToShortDateString()</td>
+        <td>@item.ShippedDate?.ToShortDateString()</td>
+    </tr>}
+                </table>}

@@ -1,0 +1,12 @@
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.Form1.resources
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.Form2.resources
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.Properties.Resources.resources
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.csproj.GenerateResource.cache
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.csproj.CoreCompileInputs.cache
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\bin\Debug\MarkStudentEntryApp.exe.config
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\bin\Debug\MarkStudentEntryApp.exe
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\bin\Debug\MarkStudentEntryApp.pdb
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.exe
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.pdb
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.csproj.AssemblyReference.cache
+C:\sravya_practice\MarkStudentEntryApp\MarkStudentEntryApp\obj\Debug\MarkStudentEntryApp.Form4.resources

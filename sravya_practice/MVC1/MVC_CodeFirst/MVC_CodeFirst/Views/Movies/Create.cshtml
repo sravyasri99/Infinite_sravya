@@ -1,0 +1,22 @@
+﻿@model MVC_CodeFirst.Models.Movie
+@{
+    ViewBag.Title = "Create Movie";
+}
+<h2>Create Movie</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Moviename)
+    @Html.TextBoxFor(m => m.Moviename)
+    <br />
+
+    @Html.LabelFor(m => m.DirectorName)
+    @Html.TextBoxFor(m => m.DirectorName)
+    <br />
+
+    @Html.LabelFor(m => m.DateofRelease)
+    @Html.TextBoxFor(m => m.DateofRelease, "{0:yyyy-MM-dd}", new { type = "date" })
+    <br />
+
+    <input type="submit" value="Create" />
+}

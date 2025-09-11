@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sravyaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Deptid" />
+    </Key>
+    <Property Name="Deptid" Type="Int32" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptBudget" Type="Double" />
+    <NavigationProperty Name="Employees" Relationship="sravyaModel.FK__Employee__Depart__2DE6D218" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="empnormal">
+    <Key>
+      <PropertyRef Name="eno" />
+      <PropertyRef Name="prjcode" />
+    </Key>
+    <Property Name="eno" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="dept" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="prjcode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hours" Type="Int32" />
+  </EntityType>
+  <EntityType Name="holiday">
+    <Key>
+      <PropertyRef Name="Holiday_Date" />
+    </Key>
+    <Property Name="Holiday_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Holiday_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="sravyaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="empnormals" EntityType="Self.empnormal" />
+    <EntitySet Name="holidays" EntityType="Self.holiday" />
+    <FunctionImport Name="payslip_generation">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getavgsal_empcount">
+      <Parameter Name="did" Mode="In" Type="Int32" />
+      <Parameter Name="avgsal" Mode="InOut" Type="Double" />
+    </FunctionImport>
+    <EntitySet Name="Employees" EntityType="sravyaModel.Employee" />
+    <EntitySet Name="vwEmpbyDepts" EntityType="sravyaModel.vwEmpbyDept" />
+    <AssociationSet Name="FK__Employee__Depart__2DE6D218" Association="sravyaModel.FK__Employee__Depart__2DE6D218">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+      <PropertyRef Name="EmpName" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="sravyaModel.FK__Employee__Depart__2DE6D218" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="vwEmpbyDept">
+    <Key>
+      <PropertyRef Name="empid" />
+      <PropertyRef Name="empname" />
+      <PropertyRef Name="deptname" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="empname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="deptname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Employee__Depart__2DE6D218">
+    <End Type="sravyaModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="sravyaModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Deptid" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

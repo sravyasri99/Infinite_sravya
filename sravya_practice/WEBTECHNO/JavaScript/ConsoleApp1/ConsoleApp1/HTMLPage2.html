@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.85em;
+            display: none;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form onsubmit="return FormValidator()">
+        <label>
+            Username:
+            <input type="text" id="username" />
+            <span class="error" id="userError">Username must be 3–25 characters</span>
+        </label>
+
+        <label>
+            Email:
+            <input type="text" id="email" />
+            <span class="error" id="emailError">Enter a valid email address</span>
+        </label>
+
+        <label>
+            Password:
+            <input type="password" id="password" />
+            <span class="error" id="passError">Must be 8+ chars with uppercase, lowercase, number, special char</span>
+        </label>
+
+        <label>
+            Confirm Password:
+            <input type="password" id="confirmPassword" />
+            <span class="error" id="matchError">Passwords do not match</span>
+        </label>
+
+        <input type="submit" value="SIGN UP" />
+    </form>
+
+    <script>
+        function FormValidator() {
+            var username = document.getElementById('username');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var confirmPassword = document.getElementById('confirmPassword');
+
+            var userValid = lengthRestriction(username, 3, 25, 'userError');
+            var emailValid = emailValidate(email, 'emailError');
+            var passValid = passwordValidate(password, 'passError');
+            var matchValid = passwordMatch(password, confirmPassword, 'matchError');
+
+            return userValid && emailValid && passValid && matchValid;
+        }
+
+        function lengthRestriction(elem, min, max, errorId) {
+            var error = document.getElementById(errorId);
+            if (elem.value.length >= min && elem.value.length <= max) {
+                error.style.display = "none";
+                return true;
+            } else {
+                error.style.display = "block";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function emailValidate(elem, errorId) {
+            var emailexpr = /^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/;
+            var error = document.getElementById(errorId);
+            if (elem.value.match(emailexpr)) {
+                error.style.display = "none";
+                return true;
+            } else {
+                error.style.display = "block";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function passwordValidate(elem, errorId) {
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+            var error = document.getElementById(errorId);
+            if (elem.value.match(regex)) {
+                error.style.display = "none";
+                return true;
+            } else {
+                error.style.display = "block";
+                elem.focus();
+                return false;
+            }
+        }
+
+        function passwordMatch(elem1, elem2, errorId) {
+            var error = document.getElementById(errorId);
+            if (elem1.value === elem2.value) {
+                error.style.display = "none";
+                return true;
+            } else {
+                error.style.display = "block";
+                elem2.focus();
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

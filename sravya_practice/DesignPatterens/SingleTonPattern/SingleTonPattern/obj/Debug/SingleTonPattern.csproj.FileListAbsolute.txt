@@ -1,0 +1,7 @@
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\bin\Debug\SingleTonPattern.exe.config
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\bin\Debug\SingleTonPattern.exe
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\bin\Debug\SingleTonPattern.pdb
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\obj\Debug\SingleTonPattern.csproj.AssemblyReference.cache
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\obj\Debug\SingleTonPattern.csproj.CoreCompileInputs.cache
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\obj\Debug\SingleTonPattern.exe
+C:\sravya_practice\DesignPatterens\SingleTonPattern\SingleTonPattern\obj\Debug\SingleTonPattern.pdb

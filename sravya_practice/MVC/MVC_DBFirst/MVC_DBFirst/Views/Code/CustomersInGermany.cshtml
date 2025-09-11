@@ -1,0 +1,26 @@
+﻿﻿@model IEnumerable<MVC_DBFirst.Models.Customer>
+@{
+    ViewBag.Title = "CustomersInGermany";
+}
+
+<h2>CustomersInGermany</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>CustomerID</th>
+            <th>CompanyName</th>
+            <th>ContactName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.CompanyName</td>
+                <td>@customer.ContactName</td>
+            </tr>
+        }
+    </tbody>
+</table>

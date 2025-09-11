@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sravyaModelStoreContainer" CdmEntityContainer="sravyaEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="sravyaModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Deptid" ColumnName="Deptid" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptBudget" ColumnName="DeptBudget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empnormals">
+      <EntityTypeMapping TypeName="sravyaModel.empnormal">
+        <MappingFragment StoreEntitySet="empnormal">
+          <ScalarProperty Name="eno" ColumnName="eno" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
+          <ScalarProperty Name="prjcode" ColumnName="prjcode" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="holidays">
+      <EntityTypeMapping TypeName="sravyaModel.holiday">
+        <MappingFragment StoreEntitySet="holidays">
+          <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+          <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="payslip_generation" FunctionName="sravyaModel.Store.payslip_generation" />
+    <FunctionImportMapping FunctionImportName="sp_getavgsal_empcount" FunctionName="sravyaModel.Store.sp_getavgsal_empcount" />
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="sravyaModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwEmpbyDepts">
+      <EntityTypeMapping TypeName="sravyaModel.vwEmpbyDept">
+        <MappingFragment StoreEntitySet="vwEmpbyDept">
+          <ScalarProperty Name="deptname" ColumnName="deptname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

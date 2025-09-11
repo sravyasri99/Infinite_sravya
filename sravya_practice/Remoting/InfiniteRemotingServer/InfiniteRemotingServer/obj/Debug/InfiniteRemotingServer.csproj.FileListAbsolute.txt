@@ -1,0 +1,6 @@
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\bin\Debug\InfiniteRemotingServer.dll
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\bin\Debug\InfiniteRemotingServer.pdb
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\obj\Debug\InfiniteRemotingServer.csproj.AssemblyReference.cache
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\obj\Debug\InfiniteRemotingServer.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\obj\Debug\InfiniteRemotingServer.dll
+C:\sravya_practice\Remoting\InfiniteRemotingServer\InfiniteRemotingServer\obj\Debug\InfiniteRemotingServer.pdb

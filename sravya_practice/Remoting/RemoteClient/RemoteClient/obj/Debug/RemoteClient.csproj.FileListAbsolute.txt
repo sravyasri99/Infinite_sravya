@@ -1,0 +1,10 @@
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\bin\Debug\RemoteClient.exe.config
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\bin\Debug\RemoteClient.exe
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\bin\Debug\RemoteClient.pdb
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\bin\Debug\InfiniteRemotingServer.dll
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\bin\Debug\InfiniteRemotingServer.pdb
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\obj\Debug\RemoteClient.csproj.AssemblyReference.cache
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\obj\Debug\RemoteClient.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\obj\Debug\RemoteClient.csproj.CopyComplete
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\obj\Debug\RemoteClient.exe
+C:\sravya_practice\Remoting\RemoteClient\RemoteClient\obj\Debug\RemoteClient.pdb

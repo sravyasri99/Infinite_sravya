@@ -1,0 +1,7 @@
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\bin\Debug\LINQ_Queries.exe.config
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\bin\Debug\LINQ_Queries.exe
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\bin\Debug\LINQ_Queries.pdb
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\obj\Debug\LINQ_Queries.csproj.AssemblyReference.cache
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\obj\Debug\LINQ_Queries.csproj.CoreCompileInputs.cache
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\obj\Debug\LINQ_Queries.exe
+C:\sravya_practice\ADO\LINQ_Queries\LINQ_Queries\obj\Debug\LINQ_Queries.pdb

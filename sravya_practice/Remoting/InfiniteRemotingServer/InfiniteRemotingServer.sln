@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36128.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteRemotingServer", "InfiniteRemotingServer\InfiniteRemotingServer.csproj", "{A0CB0680-E1D5-45BF-B6F1-2AE063240DEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteServicesHost", "InfiniteServicesHost\InfiniteServicesHost.csproj", "{A34787B2-98EA-474A-83ED-51D71DEF10E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0CB0680-E1D5-45BF-B6F1-2AE063240DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CB0680-E1D5-45BF-B6F1-2AE063240DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CB0680-E1D5-45BF-B6F1-2AE063240DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CB0680-E1D5-45BF-B6F1-2AE063240DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34787B2-98EA-474A-83ED-51D71DEF10E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34787B2-98EA-474A-83ED-51D71DEF10E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34787B2-98EA-474A-83ED-51D71DEF10E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34787B2-98EA-474A-83ED-51D71DEF10E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7C30A7C-17B5-4EFA-82B6-B9235FCC2E10}
+	EndGlobalSection
+EndGlobal

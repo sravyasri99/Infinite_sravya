@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SQL_Assignment1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cancellations">
+          <Key>
+            <PropertyRef Name="CancellationID" />
+          </Key>
+          <Property Name="CancellationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReservationID" Type="int" />
+          <Property Name="CancellationDate" Type="date" />
+          <Property Name="RefundAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SeatsCancelled" Type="int" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Client_id" />
+          </Key>
+          <Property Name="Client_id" Type="int" Nullable="false" />
+          <Property Name="Cname" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Phone" Type="bigint" />
+          <Property Name="Business" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Deptno" />
+          </Key>
+          <Property Name="Deptno" Type="int" Nullable="false" />
+          <Property Name="Dname" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Loc" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="deptno" />
+          </Key>
+          <Property Name="deptno" Type="int" Nullable="false" />
+          <Property Name="dname" Type="varchar" MaxLength="30" />
+          <Property Name="loc" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="int" Nullable="false" />
+          <Property Name="ename" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="job" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="mgr_id" Type="int" />
+          <Property Name="hire_date" Type="date" />
+          <Property Name="salary" Type="int" />
+          <Property Name="comm" Type="int" />
+          <Property Name="deptno" Type="int" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Empno" />
+          </Key>
+          <Property Name="Empno" Type="int" Nullable="false" />
+          <Property Name="Ename" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Job" Type="varchar" MaxLength="15" />
+          <Property Name="Salary" Type="bigint" />
+          <Property Name="Deptno" Type="int" />
+        </EntityType>
+        <EntityType Name="EmpProjectTasks">
+          <Key>
+            <PropertyRef Name="Project_id" />
+            <PropertyRef Name="Empno" />
+          </Key>
+          <Property Name="Project_id" Type="int" Nullable="false" />
+          <Property Name="Empno" Type="int" Nullable="false" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_date" Type="date" />
+          <Property Name="Task" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="holidays">
+          <Key>
+            <PropertyRef Name="Holiday_Date" />
+          </Key>
+          <Property Name="Holiday_Date" Type="date" Nullable="false" />
+          <Property Name="Holiday_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SQL_Assignment1.dbo.marks' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="marks">
+          <Property Name="Mid" Type="int" />
+          <Property Name="S_id" Type="int" />
+          <Property Name="Score" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Descr" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Start_date" Type="date" />
+          <Property Name="Planned_end_date" Type="date" />
+          <Property Name="Actual_end_date" Type="date" />
+          <Property Name="Budget" Type="bigint" />
+          <Property Name="Client_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="TrainNo" Type="int" />
+          <Property Name="Class" Type="varchar" MaxLength="20" />
+          <Property Name="DateOfJourney" Type="date" />
+          <Property Name="SeatsBooked" Type="int" />
+          <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BookingDate" Type="date" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NetAmount" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="int" Nullable="false" />
+          <Property Name="Sname" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Trains">
+          <Key>
+            <PropertyRef Name="TrainNo" />
+            <PropertyRef Name="Class" />
+          </Key>
+          <Property Name="TrainNo" Type="int" Nullable="false" />
+          <Property Name="TrainName" Type="varchar" MaxLength="100" />
+          <Property Name="Source" Type="varchar" MaxLength="50" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" />
+          <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Availability" Type="int" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__Cancellat__Reser__6AEFE058">
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="0..1" />
+          <End Role="Cancellations" Type="Self.Cancellations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservations">
+              <PropertyRef Name="ReservationID" />
+            </Principal>
+            <Dependent Role="Cancellations">
+              <PropertyRef Name="ReservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__emp__deptno__02FC7413">
+          <End Role="dept" Type="Self.dept" Multiplicity="0..1" />
+          <End Role="emp" Type="Self.emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dept">
+              <PropertyRef Name="deptno" />
+            </Principal>
+            <Dependent Role="emp">
+              <PropertyRef Name="deptno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Deptn__628FA481">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Deptno" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Deptno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpProjec__Empno__6B24EA82">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="EmpProjectTasks" Type="Self.EmpProjectTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Empno" />
+            </Principal>
+            <Dependent Role="EmpProjectTasks">
+              <PropertyRef Name="Empno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpProjec__Proje__6A30C649">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="EmpProjectTasks" Type="Self.EmpProjectTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Project_ID" />
+            </Principal>
+            <Dependent Role="EmpProjectTasks">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'SQL_Assignment1.dbo.marks' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__marks__S_id__1332DBDC" />-->
+        <Association Name="FK__Projects__Client__6754599E">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Client_id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="Client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Custo__662B2B3B">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservations__671F4F74">
+          <End Role="Trains" Type="Self.Trains" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainNo" />
+              <PropertyRef Name="Class" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="TrainNo" />
+              <PropertyRef Name="Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SQL_Assignment1ModelStoreContainer">
+          <EntitySet Name="Cancellations" EntityType="Self.Cancellations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dept" EntityType="Self.dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp" EntityType="Self.emp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpProjectTasks" EntityType="Self.EmpProjectTasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="holidays" EntityType="Self.holidays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trains" EntityType="Self.Trains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cancellat__Reser__6AEFE058" Association="Self.FK__Cancellat__Reser__6AEFE058">
+            <End Role="Reservations" EntitySet="Reservations" />
+            <End Role="Cancellations" EntitySet="Cancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__emp__deptno__02FC7413" Association="Self.FK__emp__deptno__02FC7413">
+            <End Role="dept" EntitySet="dept" />
+            <End Role="emp" EntitySet="emp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Deptn__628FA481" Association="Self.FK__Employees__Deptn__628FA481">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpProjec__Empno__6B24EA82" Association="Self.FK__EmpProjec__Empno__6B24EA82">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmpProjectTasks" EntitySet="EmpProjectTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpProjec__Proje__6A30C649" Association="Self.FK__EmpProjec__Proje__6A30C649">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="EmpProjectTasks" EntitySet="EmpProjectTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projects__Client__6754599E" Association="Self.FK__Projects__Client__6754599E">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Custo__662B2B3B" Association="Self.FK__Reservati__Custo__662B2B3B">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservations__671F4F74" Association="Self.FK__Reservations__671F4F74">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SQL_Assignment1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cancellation">
+          <Key>
+            <PropertyRef Name="CancellationID" />
+          </Key>
+          <Property Name="CancellationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReservationID" Type="Int32" />
+          <Property Name="CancellationDate" Type="DateTime" Precision="0" />
+          <Property Name="RefundAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SeatsCancelled" Type="Int32" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK__Cancellat__Reser__6AEFE058" FromRole="Cancellations" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Client_id" />
+          </Key>
+          <Property Name="Client_id" Type="Int32" Nullable="false" />
+          <Property Name="Cname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int64" />
+          <Property Name="Business" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK__Projects__Client__6754599E" FromRole="Clients" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservations" Relationship="Self.FK__Reservati__Custo__662B2B3B" FromRole="Customers" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Deptno" />
+          </Key>
+          <Property Name="Deptno" Type="Int32" Nullable="false" />
+          <Property Name="Dname" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Loc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Deptn__628FA481" FromRole="Departments" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="deptno" />
+          </Key>
+          <Property Name="deptno" Type="Int32" Nullable="false" />
+          <Property Name="dname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="loc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="emps" Relationship="Self.FK__emp__deptno__02FC7413" FromRole="dept" ToRole="emp" />
+        </EntityType>
+        <EntityType Name="emp">
+          <Key>
+            <PropertyRef Name="empno" />
+          </Key>
+          <Property Name="empno" Type="Int32" Nullable="false" />
+          <Property Name="ename" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="job" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mgr_id" Type="Int32" />
+          <Property Name="hire_date" Type="DateTime" Precision="0" />
+          <Property Name="salary" Type="Int32" />
+          <Property Name="comm" Type="Int32" />
+          <Property Name="deptno" Type="Int32" />
+          <NavigationProperty Name="dept" Relationship="Self.FK__emp__deptno__02FC7413" FromRole="emp" ToRole="dept" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Empno" />
+          </Key>
+          <Property Name="Empno" Type="Int32" Nullable="false" />
+          <Property Name="Ename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Job" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Int64" />
+          <Property Name="Deptno" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Employees__Deptn__628FA481" FromRole="Employees" ToRole="Departments" />
+          <NavigationProperty Name="EmpProjectTasks" Relationship="Self.FK__EmpProjec__Empno__6B24EA82" FromRole="Employees" ToRole="EmpProjectTasks" />
+        </EntityType>
+        <EntityType Name="EmpProjectTask">
+          <Key>
+            <PropertyRef Name="Project_id" />
+            <PropertyRef Name="Empno" />
+          </Key>
+          <Property Name="Project_id" Type="Int32" Nullable="false" />
+          <Property Name="Empno" Type="Int32" Nullable="false" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_date" Type="DateTime" Precision="0" />
+          <Property Name="Task" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__EmpProjec__Empno__6B24EA82" FromRole="EmpProjectTasks" ToRole="Employees" />
+          <NavigationProperty Name="Project" Relationship="Self.FK__EmpProjec__Proje__6A30C649" FromRole="EmpProjectTasks" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="holiday">
+          <Key>
+            <PropertyRef Name="Holiday_Date" />
+          </Key>
+          <Property Name="Holiday_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Holiday_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Descr" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_date" Type="DateTime" Precision="0" />
+          <Property Name="Planned_end_date" Type="DateTime" Precision="0" />
+          <Property Name="Actual_end_date" Type="DateTime" Precision="0" />
+          <Property Name="Budget" Type="Int64" />
+          <Property Name="Client_id" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Projects__Client__6754599E" FromRole="Projects" ToRole="Clients" />
+          <NavigationProperty Name="EmpProjectTasks" Relationship="Self.FK__EmpProjec__Proje__6A30C649" FromRole="Projects" ToRole="EmpProjectTasks" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="TrainNo" Type="Int32" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfJourney" Type="DateTime" Precision="0" />
+          <Property Name="SeatsBooked" Type="Int32" />
+          <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BookingDate" Type="DateTime" Precision="0" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="NetAmount" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Cancellations" Relationship="Self.FK__Cancellat__Reser__6AEFE058" FromRole="Reservations" ToRole="Cancellations" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Reservati__Custo__662B2B3B" FromRole="Reservations" ToRole="Customers" />
+          <NavigationProperty Name="Train" Relationship="Self.FK__Reservations__671F4F74" FromRole="Reservations" ToRole="Trains" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="S_id" />
+          </Key>
+          <Property Name="S_id" Type="Int32" Nullable="false" />
+          <Property Name="Sname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Train">
+          <Key>
+            <PropertyRef Name="TrainNo" />
+            <PropertyRef Name="Class" />
+          </Key>
+          <Property Name="TrainNo" Type="Int32" Nullable="false" />
+          <Property Name="TrainName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Availability" Type="Int32" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Reservations" Relationship="Self.FK__Reservations__671F4F74" FromRole="Trains" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Cancellat__Reser__6AEFE058">
+          <End Role="Reservations" Type="Self.Reservation" Multiplicity="0..1" />
+          <End Role="Cancellations" Type="Self.Cancellation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservations">
+              <PropertyRef Name="ReservationID" />
+            </Principal>
+            <Dependent Role="Cancellations">
+              <PropertyRef Name="ReservationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projects__Client__6754599E">
+          <End Role="Clients" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Client_id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="Client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Custo__662B2B3B">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Deptn__628FA481">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Deptno" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Deptno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__emp__deptno__02FC7413">
+          <End Role="dept" Type="Self.dept" Multiplicity="0..1" />
+          <End Role="emp" Type="Self.emp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dept">
+              <PropertyRef Name="deptno" />
+            </Principal>
+            <Dependent Role="emp">
+              <PropertyRef Name="deptno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpProjec__Empno__6B24EA82">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmpProjectTasks" Type="Self.EmpProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Empno" />
+            </Principal>
+            <Dependent Role="EmpProjectTasks">
+              <PropertyRef Name="Empno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpProjec__Proje__6A30C649">
+          <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+          <End Role="EmpProjectTasks" Type="Self.EmpProjectTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Project_ID" />
+            </Principal>
+            <Dependent Role="EmpProjectTasks">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservations__671F4F74">
+          <End Role="Trains" Type="Self.Train" Multiplicity="0..1" />
+          <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trains">
+              <PropertyRef Name="TrainNo" />
+              <PropertyRef Name="Class" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="TrainNo" />
+              <PropertyRef Name="Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SQL_Assignment1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cancellations" EntityType="Self.Cancellation" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="depts" EntityType="Self.dept" />
+          <EntitySet Name="emps" EntityType="Self.emp" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="EmpProjectTasks" EntityType="Self.EmpProjectTask" />
+          <EntitySet Name="holidays" EntityType="Self.holiday" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="Trains" EntityType="Self.Train" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Cancellat__Reser__6AEFE058" Association="Self.FK__Cancellat__Reser__6AEFE058">
+            <End Role="Reservations" EntitySet="Reservations" />
+            <End Role="Cancellations" EntitySet="Cancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projects__Client__6754599E" Association="Self.FK__Projects__Client__6754599E">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Custo__662B2B3B" Association="Self.FK__Reservati__Custo__662B2B3B">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Deptn__628FA481" Association="Self.FK__Employees__Deptn__628FA481">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__emp__deptno__02FC7413" Association="Self.FK__emp__deptno__02FC7413">
+            <End Role="dept" EntitySet="depts" />
+            <End Role="emp" EntitySet="emps" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpProjec__Empno__6B24EA82" Association="Self.FK__EmpProjec__Empno__6B24EA82">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmpProjectTasks" EntitySet="EmpProjectTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpProjec__Proje__6A30C649" Association="Self.FK__EmpProjec__Proje__6A30C649">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="EmpProjectTasks" EntitySet="EmpProjectTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservations__671F4F74" Association="Self.FK__Reservations__671F4F74">
+            <End Role="Trains" EntitySet="Trains" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SQL_Assignment1ModelStoreContainer" CdmEntityContainer="SQL_Assignment1Entities">
+          <EntitySetMapping Name="Cancellations">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Cancellation">
+              <MappingFragment StoreEntitySet="Cancellations">
+                <ScalarProperty Name="CancellationID" ColumnName="CancellationID" />
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+                <ScalarProperty Name="RefundAmount" ColumnName="RefundAmount" />
+                <ScalarProperty Name="SeatsCancelled" ColumnName="SeatsCancelled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Client_id" ColumnName="Client_id" />
+                <ScalarProperty Name="Cname" ColumnName="Cname" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Business" ColumnName="Business" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="Deptno" ColumnName="Deptno" />
+                <ScalarProperty Name="Dname" ColumnName="Dname" />
+                <ScalarProperty Name="Loc" ColumnName="Loc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="depts">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.dept">
+              <MappingFragment StoreEntitySet="dept">
+                <ScalarProperty Name="deptno" ColumnName="deptno" />
+                <ScalarProperty Name="dname" ColumnName="dname" />
+                <ScalarProperty Name="loc" ColumnName="loc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emps">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.emp">
+              <MappingFragment StoreEntitySet="emp">
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="mgr_id" ColumnName="mgr_id" />
+                <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="deptno" ColumnName="deptno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Empno" ColumnName="Empno" />
+                <ScalarProperty Name="Ename" ColumnName="Ename" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Deptno" ColumnName="Deptno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpProjectTasks">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.EmpProjectTask">
+              <MappingFragment StoreEntitySet="EmpProjectTasks">
+                <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+                <ScalarProperty Name="Empno" ColumnName="Empno" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="End_date" ColumnName="End_date" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="holidays">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.holiday">
+              <MappingFragment StoreEntitySet="holidays">
+                <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+                <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+                <ScalarProperty Name="Planned_end_date" ColumnName="Planned_end_date" />
+                <ScalarProperty Name="Actual_end_date" ColumnName="Actual_end_date" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Client_id" ColumnName="Client_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Reservation">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TrainNo" ColumnName="TrainNo" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="DateOfJourney" ColumnName="DateOfJourney" />
+                <ScalarProperty Name="SeatsBooked" ColumnName="SeatsBooked" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.student">
+              <MappingFragment StoreEntitySet="students">
+                <ScalarProperty Name="S_id" ColumnName="S_id" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trains">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.Train">
+              <MappingFragment StoreEntitySet="Trains">
+                <ScalarProperty Name="TrainNo" ColumnName="TrainNo" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SQL_Assignment1Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

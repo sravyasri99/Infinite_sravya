@@ -1,0 +1,6 @@
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\bin\Debug\NUnit_Project2.dll
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\bin\Debug\NUnit_Project2.pdb
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\obj\Debug\NUnit_Project2.csproj.AssemblyReference.cache
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\obj\Debug\NUnit_Project2.csproj.CoreCompileInputs.cache
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\obj\Debug\NUnit_Project2.dll
+C:\sravya_practice\Testing\NUnit_Project2\NUnit_Project2\obj\Debug\NUnit_Project2.pdb

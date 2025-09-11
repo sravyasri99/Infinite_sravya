@@ -1,0 +1,11 @@
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\Client_3.exe.config
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\Client_3.exe
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\Client_3.pdb
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\SingleTonPattern.exe
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\SingleTonPattern.pdb
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\bin\Debug\SingleTonPattern.exe.config
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\obj\Debug\Client_3.csproj.AssemblyReference.cache
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\obj\Debug\Client_3.csproj.CoreCompileInputs.cache
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\obj\Debug\Client_3.csproj.CopyComplete
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\obj\Debug\Client_3.exe
+C:\sravya_practice\DesignPatterens\SingleTonPattern\Client_3\obj\Debug\Client_3.pdb

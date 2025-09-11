@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sravyaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Deptid" />
+          </Key>
+          <Property Name="Deptid" Type="int" Nullable="false" />
+          <Property Name="DeptName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DeptBudget" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sravya.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="EmpName" />
+          </Key>
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="7" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DepartmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee_Details">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="empnormal">
+          <Key>
+            <PropertyRef Name="eno" />
+            <PropertyRef Name="prjcode" />
+          </Key>
+          <Property Name="eno" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="dept" Type="varchar" MaxLength="5" />
+          <Property Name="prjcode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Hours" Type="int" />
+        </EntityType>
+        <EntityType Name="holidays">
+          <Key>
+            <PropertyRef Name="Holiday_Date" />
+          </Key>
+          <Property Name="Holiday_Date" Type="date" Nullable="false" />
+          <Property Name="Holiday_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'sravya.dbo.NullFunctionCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NullFunctionCheck">
+          <Property Name="serialNo" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="loc" Type="varchar" MaxLength="20" />
+          <Property Name="age" Type="int" />
+          <Property Name="occupation" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'sravya.dbo.Students' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Students">
+          <Property Name="StdName" Type="varchar" MaxLength="25" />
+          <Property Name="Subject" Type="varchar" MaxLength="20" />
+          <Property Name="Marks_Scored" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'sravya.dbo.vwEmpbyDept' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwEmpbyDept">
+          <Key>
+            <PropertyRef Name="empid" />
+            <PropertyRef Name="empname" />
+            <PropertyRef Name="deptname" />
+          </Key>
+          <Property Name="empid" Type="int" Nullable="false" />
+          <Property Name="empname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="phone" Type="varchar" MaxLength="12" />
+          <Property Name="deptname" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Employee__Depart__2DE6D218">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Deptid" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="decimal" Mode="In" />
+          <Parameter Name="Gender" Type="char" Mode="In" />
+          <Parameter Name="GeneratedEmpId" Type="int" Mode="InOut" />
+          <Parameter Name="NetSalary" Type="decimal" Mode="InOut" />
+        </Function>
+        <Function Name="payslip_generation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_getavgsal_empcount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="did" Type="int" Mode="In" />
+          <Parameter Name="avgsal" Type="float" Mode="InOut" />
+        </Function>
+        <Function Name="UpdateAndFetchSalary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="UpdatedSalary" Type="decimal" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="sravyaModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee_Details" EntityType="Self.Employee_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empnormal" EntityType="Self.empnormal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="holidays" EntityType="Self.holidays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Employee].[EmpId] AS [EmpId], 
+    [Employee].[EmpName] AS [EmpName], 
+    [Employee].[Gender] AS [Gender], 
+    [Employee].[Salary] AS [Salary], 
+    [Employee].[DepartmentId] AS [DepartmentId]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwEmpbyDept" EntityType="Self.vwEmpbyDept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwEmpbyDept].[empid] AS [empid], 
+    [vwEmpbyDept].[empname] AS [empname], 
+    [vwEmpbyDept].[salary] AS [salary], 
+    [vwEmpbyDept].[phone] AS [phone], 
+    [vwEmpbyDept].[deptname] AS [deptname]
+    FROM [dbo].[vwEmpbyDept] AS [vwEmpbyDept]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Employee__Depart__2DE6D218" Association="Self.FK__Employee__Depart__2DE6D218">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sravyaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Deptid" />
+          </Key>
+          <Property Name="Deptid" Type="Int32" Nullable="false" />
+          <Property Name="DeptName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DeptBudget" Type="Double" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Depart__2DE6D218" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee_Details">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="empnormal">
+          <Key>
+            <PropertyRef Name="eno" />
+            <PropertyRef Name="prjcode" />
+          </Key>
+          <Property Name="eno" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="prjcode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hours" Type="Int32" />
+        </EntityType>
+        <EntityType Name="holiday">
+          <Key>
+            <PropertyRef Name="Holiday_Date" />
+          </Key>
+          <Property Name="Holiday_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Holiday_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+            <PropertyRef Name="EmpName" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Employee__Depart__2DE6D218" FromRole="Employee" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="vwEmpbyDept">
+          <Key>
+            <PropertyRef Name="empid" />
+            <PropertyRef Name="empname" />
+            <PropertyRef Name="deptname" />
+          </Key>
+          <Property Name="empid" Type="Int32" Nullable="false" />
+          <Property Name="empname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="deptname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Employee__Depart__2DE6D218">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Deptid" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sravyaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Employee_Details" EntityType="Self.Employee_Details" />
+          <EntitySet Name="empnormals" EntityType="Self.empnormal" />
+          <EntitySet Name="holidays" EntityType="Self.holiday" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="vwEmpbyDepts" EntityType="Self.vwEmpbyDept" />
+          <AssociationSet Name="FK__Employee__Depart__2DE6D218" Association="Self.FK__Employee__Depart__2DE6D218">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <FunctionImport Name="InsertEmployeeDetails">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="Decimal" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="GeneratedEmpId" Mode="InOut" Type="Int32" />
+            <Parameter Name="NetSalary" Mode="InOut" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="payslip_generation">
+            <Parameter Name="empid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getavgsal_empcount">
+            <Parameter Name="did" Mode="In" Type="Int32" />
+            <Parameter Name="avgsal" Mode="InOut" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateAndFetchSalary">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedSalary" Mode="InOut" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sravyaModelStoreContainer" CdmEntityContainer="sravyaEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="sravyaModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Deptid" ColumnName="Deptid" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="DeptBudget" ColumnName="DeptBudget" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Details">
+            <EntityTypeMapping TypeName="sravyaModel.Employee_Details">
+              <MappingFragment StoreEntitySet="Employee_Details">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empnormals">
+            <EntityTypeMapping TypeName="sravyaModel.empnormal">
+              <MappingFragment StoreEntitySet="empnormal">
+                <ScalarProperty Name="eno" ColumnName="eno" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="prjcode" ColumnName="prjcode" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="holidays">
+            <EntityTypeMapping TypeName="sravyaModel.holiday">
+              <MappingFragment StoreEntitySet="holidays">
+                <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+                <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="sravyaModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwEmpbyDepts">
+            <EntityTypeMapping TypeName="sravyaModel.vwEmpbyDept">
+              <MappingFragment StoreEntitySet="vwEmpbyDept">
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="empname" ColumnName="empname" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="deptname" ColumnName="deptname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertEmployeeDetails" FunctionName="sravyaModel.Store.InsertEmployeeDetails" />
+          <FunctionImportMapping FunctionImportName="payslip_generation" FunctionName="sravyaModel.Store.payslip_generation" />
+          <FunctionImportMapping FunctionImportName="sp_getavgsal_empcount" FunctionName="sravyaModel.Store.sp_getavgsal_empcount" />
+          <FunctionImportMapping FunctionImportName="UpdateAndFetchSalary" FunctionName="sravyaModel.Store.UpdateAndFetchSalary" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

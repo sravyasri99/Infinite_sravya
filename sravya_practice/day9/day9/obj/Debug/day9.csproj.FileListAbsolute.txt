@@ -1,0 +1,7 @@
+C:\sravya_practice\day9\day9\bin\Debug\day9.exe.config
+C:\sravya_practice\day9\day9\bin\Debug\day9.exe
+C:\sravya_practice\day9\day9\bin\Debug\day9.pdb
+C:\sravya_practice\day9\day9\obj\Debug\day9.csproj.AssemblyReference.cache
+C:\sravya_practice\day9\day9\obj\Debug\day9.csproj.CoreCompileInputs.cache
+C:\sravya_practice\day9\day9\obj\Debug\day9.exe
+C:\sravya_practice\day9\day9\obj\Debug\day9.pdb

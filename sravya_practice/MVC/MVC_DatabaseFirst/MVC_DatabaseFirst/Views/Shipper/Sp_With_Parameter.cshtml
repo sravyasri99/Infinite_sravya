@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVC_DatabaseFirst.Models.CustOrdersOrders_Result>
+
+@{ ViewBag.Title = "Get Order Details"; }
+
+<h2>Get Order Details</h2>
+
+<form action="/Shipper/GetOrderDetails" method="post">
+    <div>
+        <label>Customer IDD:</label>
+        <input type="text" name="CustomerID" />
+    </div>
+    <div>
+        <label>Order ID:</label>
+        <input type="text" name="OrderID" />
+    </div>
+    <div>
+        <input type="submit" value="Get Details" />
+    </div>
+</form>
+
+@if (Model != null && Model.Any())
+{
+<h2>Order Details</h2>
+                <table>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date</th>
+                        <th>Required Date</th>
+                        <th>Shipped Date</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+    <tr>
+        <td>@item.OrderID</td>
+        <td>@item.OrderDate</td>
+        <td>@item.RequiredDate</td>
+        <td>@item.ShippedDate</td>
+    </tr>}
+                </table> }
+                            else if (Model != null)
+                            {
+                <p>No matching orders found.</p>}

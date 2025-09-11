@@ -1,0 +1,7 @@
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\bin\Debug\XMLOperations.exe.config
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\bin\Debug\XMLOperations.exe
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\bin\Debug\XMLOperations.pdb
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\obj\Debug\XMLOperations.csproj.AssemblyReference.cache
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\obj\Debug\XMLOperations.csproj.CoreCompileInputs.cache
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\obj\Debug\XMLOperations.exe
+C:\sravya_practice\ADO\XMLOperations\XMLOperations\obj\Debug\XMLOperations.pdb

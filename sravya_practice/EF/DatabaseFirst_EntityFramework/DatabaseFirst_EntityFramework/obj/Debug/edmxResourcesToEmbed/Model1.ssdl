@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sravyaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Deptid" />
+    </Key>
+    <Property Name="Deptid" Type="int" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DeptBudget" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sravya.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+      <PropertyRef Name="EmpName" />
+    </Key>
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="7" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DepartmentId" Type="int" />
+  </EntityType>
+  <EntityType Name="empnormal">
+    <Key>
+      <PropertyRef Name="eno" />
+      <PropertyRef Name="prjcode" />
+    </Key>
+    <Property Name="eno" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="dept" Type="varchar" MaxLength="5" />
+    <Property Name="prjcode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Hours" Type="int" />
+  </EntityType>
+  <EntityType Name="holidays">
+    <Key>
+      <PropertyRef Name="Holiday_Date" />
+    </Key>
+    <Property Name="Holiday_Date" Type="date" Nullable="false" />
+    <Property Name="Holiday_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'sravya.dbo.NullFunctionCheck' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NullFunctionCheck">
+          <Property Name="serialNo" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="loc" Type="varchar" MaxLength="20" />
+          <Property Name="age" Type="int" />
+          <Property Name="occupation" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'sravya.dbo.Students' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Students">
+          <Property Name="StdName" Type="varchar" MaxLength="25" />
+          <Property Name="Subject" Type="varchar" MaxLength="20" />
+          <Property Name="Marks_Scored" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sravya.dbo.vwEmpbyDept' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwEmpbyDept">
+    <Key>
+      <PropertyRef Name="empid" />
+      <PropertyRef Name="empname" />
+      <PropertyRef Name="deptname" />
+    </Key>
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="empname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="salary" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="phone" Type="varchar" MaxLength="12" />
+    <Property Name="deptname" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Employee__Depart__2DE6D218">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Deptid" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="payslip_generation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getavgsal_empcount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="did" Type="int" Mode="In" />
+    <Parameter Name="avgsal" Type="float" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="sravyaModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empnormal" EntityType="Self.empnormal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="holidays" EntityType="Self.holidays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Employee].[EmpId] AS [EmpId], 
+    [Employee].[EmpName] AS [EmpName], 
+    [Employee].[Gender] AS [Gender], 
+    [Employee].[Salary] AS [Salary], 
+    [Employee].[DepartmentId] AS [DepartmentId]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwEmpbyDept" EntityType="Self.vwEmpbyDept" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwEmpbyDept].[empid] AS [empid], 
+    [vwEmpbyDept].[empname] AS [empname], 
+    [vwEmpbyDept].[salary] AS [salary], 
+    [vwEmpbyDept].[phone] AS [phone], 
+    [vwEmpbyDept].[deptname] AS [deptname]
+    FROM [dbo].[vwEmpbyDept] AS [vwEmpbyDept]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Employee__Depart__2DE6D218" Association="Self.FK__Employee__Depart__2DE6D218">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

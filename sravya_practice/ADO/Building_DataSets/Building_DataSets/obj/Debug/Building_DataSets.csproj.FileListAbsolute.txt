@@ -1,0 +1,7 @@
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\bin\Debug\Building_DataSets.exe.config
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\bin\Debug\Building_DataSets.exe
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\bin\Debug\Building_DataSets.pdb
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\obj\Debug\Building_DataSets.csproj.AssemblyReference.cache
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\obj\Debug\Building_DataSets.csproj.CoreCompileInputs.cache
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\obj\Debug\Building_DataSets.exe
+C:\sravya_practice\ADO\Building_DataSets\Building_DataSets\obj\Debug\Building_DataSets.pdb

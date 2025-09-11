@@ -1,0 +1,87 @@
+C:\sravya_practice\MVC1\Web API\Web API\bin\Web API.dll.config
+C:\sravya_practice\MVC1\Web API\Web API\bin\Web API.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Web API.pdb
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csc.exe
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csc.exe.config
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csc.rsp
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csi.exe
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csi.exe.config
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\csi.rsp
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.Managed.Core.targets
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.AppContext.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Collections.Immutable.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Console.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Globalization.Calendars.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.IO.Compression.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.IO.FileSystem.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Net.Http.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Net.Sockets.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Reflection.Metadata.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.ValueTuple.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Xml.XmlDocument.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Xml.XPath.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\vbc.exe
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\vbc.exe.config
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\vbc.rsp
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\VBCSCompiler.exe
+C:\sravya_practice\MVC1\Web API\Web API\bin\roslyn\VBCSCompiler.exe.config
+C:\sravya_practice\MVC1\Web API\Web API\bin\Antlr3.Runtime.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Microsoft.Web.Infrastructure.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Newtonsoft.Json.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Swashbuckle.Core.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Net.Http.Formatting.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Helpers.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Http.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Http.WebHost.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Mvc.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Optimization.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Razor.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.Deployment.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.Razor.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\WebActivatorEx.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\WebGrease.dll
+C:\sravya_practice\MVC1\Web API\Web API\bin\Newtonsoft.Json.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Net.Http.Formatting.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Helpers.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Http.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Http.WebHost.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Mvc.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Optimization.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.Razor.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.Deployment.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\System.Web.WebPages.Razor.xml
+C:\sravya_practice\MVC1\Web API\Web API\bin\Antlr3.Runtime.pdb
+C:\sravya_practice\MVC1\Web API\Web API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\sravya_practice\MVC1\Web API\Web API\obj\Debug\Web API.csproj.AssemblyReference.cache
+C:\sravya_practice\MVC1\Web API\Web API\obj\Debug\Web API.csproj.CoreCompileInputs.cache
+C:\sravya_practice\MVC1\Web API\Web API\obj\Debug\Web API.csproj.CopyComplete
+C:\sravya_practice\MVC1\Web API\Web API\obj\Debug\Web API.dll
+C:\sravya_practice\MVC1\Web API\Web API\obj\Debug\Web API.pdb

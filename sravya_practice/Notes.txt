@@ -1,0 +1,263 @@
+-------------------------------------------------------------------------
+
+Git : It is an open source version control system
+Git Hub : It is a company that makes tools which integrate with git.
+         - it is a cloud based platform where we can store, share and work together with others.
+
+Basic Git steps:
+---------------
+ 1. create files
+ 2. add files to the remote repository
+ 3. commit them
+ 4. push to the master
+
+---------------------------------------------------------------------------
+
+.NET Framework -- It is a software component that provides tools and libraries, that enables developers to create software's much easier and faster.
+--------------
+Assembly - Assemblies are fundamental unit of deployment, version control and reusable .net applications.
+         - They are of two types (.exe / .dll) 
+	 - They can be private or shared
+Csharp - It is a modern general purpose object oriented programming language by Microsoft
+       - It is developed by Anders Hejlsberg
+In Program
+Namespace -  It is a logical way to organize the programs
+          -  It consists of classes, functions, other namespaces, structures etc
+----------------------------------------------------------------------------
+Data Types - There are 2 data types
+----------
+1.Value type
+2.Reference type
+
+1. Value Types - These are integral data types like int, char, float, double etc
+            - User defined value types  are : Structures and Enumerators
+            - Pre-defined value types are: all integral or primitive data types
+            - They stores data directly and the data will be stored in the stack memory
+
+2. Reference Types  - All objects of classes, interfaces, Arrays etc are reference types
+                    - They contains the memory address of the place where the data is stored
+                    - They are stored in the heap memory
+                    - User defined reference types are classes, arrays, Interfaces
+                    - Pre-defined reference types are Strings and objects
+---------------------------------------------------------------------------
+Using Ternary Operator : 3 operands --- ex: b = num = = 10 ? true: false;
+--------------------------------------------------------------------------
+Type Conversions : There are two types
+1. Implicit
+2. Explicit
+
+1. Implicit Type Conversion - Compiler handles on it's own
+			    - Lower Datatype to higher datatype
+			    - ex :int i  = 10; 
+                                  float f = i;
+2. Explicit Type Conversion - 3 ways
+                            1.Type casting: ex: i = (int)f; --- Here there is a chance for data loss 
+                            2.By Conversion Functions :  ex: i = Convert.ToInt32(f);
+TryParse() : To handle exception
+           - ex: string str = "100";
+                 x = int.Parse(str); ----- correct
+           - ex: string str = "100gms";
+                  int.TryParse(str, out result)
+                                |          | 
+                             i/p string   o/p Int 
+
+Conversion Between Value Types and Reference Types: They are 2 types
+-------------------------------------------------- - 1. Boxing: Converting a value type to a Reference type
+                                                                ex: int i = 10;
+                                                                    object obj = i;---boxing
+                                                   - 2. Unboxing: Converting a reference type to value type
+                                                                ex: i = (int)obj; ---- unboxing
+Implicitly Typed Data Types: two types
+---------  ----- --------- 
+                             1.Var
+                             2.dynamic
+ 1. Var -- It is a type that take up any other type and will become that type
+          - Value must be assigned at the time of declaration only
+          - once assigned cannot be altered later
+          - ex : Var v = "10"; ------- Type conversion at compile time
+ 2. dynamic -- These are reference types that remain unchanged during the compilation
+             - No need of initialization at the time of declaration
+             - undergoes boxing or unboxing conversion during run time
+             - ex: d = "hi";
+                   d = false; --- Last or final value assigned is only shown at the run time
+Null Literals
+-------------
+ - All the reference types are default null as of the c# 7.0
+ - when we are trying to assign an null to the any value type it will give error, so to overcome it we use the nullables.
+ - Nullable : are generally unknown information we can assign normal range of values as well as null values using nullable
+   -------- - represented as by " ? "
+            -  ex: int num = null --- error
+                   int ? num = null --- correct // enabling a value type to have null
+Null Coalescing :  (??)operator can minimize the code of working with nullable values
+----------------  - ex: total = number ?? 0
+------------------------------------------------------------------------------------------------------------------------------
+Control Statements: represents the execution path of a program
+
+1. Selection Statements: - If, Switch
+                         - "if" can check multiple conditions, switch 
+2. Iteration Statements: - while, do while, for, foreach
+                         - (initial value, condition, termination)
+3. jump Statements: break, continue, goto, return, throw
+                   - "break" - breaks at the current execution and comes out of the loop
+                   - "Continue" - only the current execution will be terminated(Excluded) continues with the next execution
+                   - "goto" - It is used for transfer of control within the function -- ex: goto infinite;
+                                                                                            :
+                                                                                            infinite:
+-------------------------------------------------------------------------------------------------------------------------------
+Instance vs Static members:
+1. Instance member: are the members that are available as a copy to each and every object that is created
+                  - These are accessed only with the object reference
+                  - for an non static member the class object must be created and then only it should be assessed 
+2.Static member: These are known as class members
+               - only one copy exists for the entire class 
+               - These are managed and maintained by the CLR
+               - The static members can be accessed by the class name
+--------------------------------------------------------------------------------------------------------------------------------
+Arrays: arrays are continuous memory allocation of the same type of data with a fixed size
+-------      - These are reference types
+
+Types of Arrays :1. Single dimension array: int[] a = new int[5];
+                                            int[] a = new int[]{1,2,3,4,5};
+                                            int[] a = new int[] = {4,5};
+                 2. Two Dimensional array :int[,] arr = new int[2,3];
+                                           int[,] arr = new int[2,3]{{1,2,3},{4,5,6}};
+                 3. Jagged array : Array of Arrays - Every element of jagged array is an array itself
+                                 : int[][] jagg2 = 
+                                   {
+                                      new int[]{5,10,1},
+                                      new int[]{25,3},
+                                      new int[]{5,8},
+                                    };
+
+Strings : These are the collection of characters 
+-------- - It is a pre defined reference type
+         - are a collection of characters
+         - are predefined reference types
+         - memory is allocated on the heap
+         - strings have fixed size
+         - strings are immutable
+         - strings memory cannot be changed
+
+StringBuilder : same as strings but are these are mutable
+
+Structures : These are user defined value types
+           - These are used to create and store multiple data of different data types as a single unit
+
+Enumerations : These are a set/collection of named constants
+             - These are user defined value types
+             - are declared using "Enum" keyword
+             - the default type of any enumeration list is int
+             - is used when we want to store a list of values that generally correspond to a particular type
+
+ReadOnly :  -variables/fields that are declared using 'readonly' keyword
+            -They cannot be modified after they are initialized
+            -We can initialize readonly variables either at the time of declaration or thru a constructor
+            -Constructor initializations have precedence
+            -They are similar to non-static members(meaning, it is maintained as a separate copy in each object)
+            -While the non-static members values can be changed by the object, the same is not possible with readonly
+
+
+Constants  : are like readonly (meaning once initialized cannot be modified)
+           - Unlike readonly we can initialize the constants only at the time of declaration
+           - Are like static members because there exists only one copy of the constant for the entire class
+           - While static members can be changed, constants cannot be changed
+----------------------------------------------------------------------------------------------------------------
+
+class : - Class is a structural declaration of what is needed and how it is needed/accessed
+        - Blue print
+object :- Object is an working copy of the class (instance of the class)
+        - They tell about the Data, behaviour and state
+
+This : - It is a pointer that points to the current instance/object 
+
+oops concepts:
+--------------
+
+Encapsulation :- Unit of Info. that consists of fields and functions
+               -  Is a process of enclosing one or more items within a physical or logical package
+               -  It prevents access to implementation details
+               -  Is achieved using access specifiers
+
+Abstraction : - Giving away only required data and hiding the rest
+
+Inheritance : - Extensions - that allows a new class (derived class) to inherit properties and methods from an existing class (base class)
+
+Polymorphism : Existing in many forms /different forms - the ability of a method, operator, or object to behave in multiple forms or take on multiple shapes
+-----------------------------------------------------------------------------------------------------
+Constructors :- Are special function/s of the class
+              - They have the same name as that of the class
+              - They do not have any return type 
+              - They can be overloaded 
+              - They are meant for initializing the members
+              - They are explicitly called like a normal function
+              - They have to be either public or internal or protected, but not private
+
+Destructors :- is a special function of the class
+             - has the same name as that of the class preceded with a 'tilde ~'
+             - no return type, no access specifiers 
+             - cannot be overloaded ( only one per class)
+             - cannot be called explicitly called like a normal function
+             - are meant for deallocation of memory
+
+Note :- since the Framework supports Garbage Collection to dispose any un utilized memory, there is no need for explicit destructor
+
+Methods and Parameters :-- In C# we have the following types to pass parameters
+
+ 1. Value  : where a copy of the parameter/argument value is passed
+ 2. Reference : where the address of the parameters value is passed
+ 3. Out  : Where we expect more than one result from a function 
+         - Since a function can return only one type, then we will be using "Out" keyword
+ 4. Parameter Array : Supports in providing an array of parameters values which can vary (0,1,2,or more)
+                    - the parameter list is separated by a comma
+                    - we need to use 'params' keyword to indicate it is an parameter array
+                    - only one params is allowed per function
+                    - params keyword should be the last in the argument list
+
+Note : All classes are internal by default
+     - All Members of the class are private by default
+
+Access Specifiers : defines the scope and visibility of a class member. C# supports
+
+ a) Private : Accessible only in the class where it is declared . No access from anywhere else
+
+ b) Public : Accessible within or outside the assembly, with or without derivation.
+             We just need an object of the class to access
+
+ c) Protected : Accessible by the class where it is declared and all its derived classes
+                The derived classes may be in the same assembly or in another assembly
+                They are accessed using the object of the derived/sub/child class only
+
+ d) Internal : Are like public, which allows access within the assembly, and not other assemblies
+
+ e) Internal protected / Protected Internal : Internal to all the derived and non-derived classes of the current assembly 
+                  Protected to all the derived classes in other assembly
+  
+Note : Initializing the base class members thru the derived class constructor by passing the values to the base class using ':base' keyword, when the base class has only parametrized constructor
+ Base : Parent instance
+
+Protected Constructors :- When any constructor is declared as protected than for that constructor it will not possible to create an object
+                        - so, if you create an derived class object than automatically it will create an parent class object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+
+ 
+
+
+
+
+

@@ -1,0 +1,11 @@
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\bin\Debug\WFB_Demo1.exe.config
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\bin\Debug\WFB_Demo1.exe
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\bin\Debug\WFB_Demo1.pdb
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.csproj.AssemblyReference.cache
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.Form1.resources
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.Properties.Resources.resources
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.csproj.GenerateResource.cache
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.csproj.CoreCompileInputs.cache
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.exe
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.pdb
+C:\sravya_practice\WFB_Demo1\WFB_Demo1\obj\Debug\WFB_Demo1.Form3.resources

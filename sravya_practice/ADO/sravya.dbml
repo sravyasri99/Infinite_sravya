@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="sravya" Class="sravyaContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Department" Member="Department">
+    <Type Name="Department">
+      <Column Name="Deptid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DeptName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="FK__Employee__Depart__49C3F6B7" Member="Employee" ThisKey="Deptid" OtherKey="DepartmentId" Type="Employee" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employee">
+    <Type Name="Employee">
+      <Column Name="EmpId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmpName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="Char(7)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DepartmentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="AnnunalSalary" Type="System.Decimal" DbType="Decimal(21,0)" CanBeNull="true" UpdateCheck="Never" Expression="([salary]*(12))" />
+      <Association Name="FK__Employee__Depart__49C3F6B7" Member="Department" ThisKey="DepartmentId" OtherKey="Deptid" Type="Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.empnormal" Member="Empnormal">
+    <Type Name="Empnormal">
+      <Column Name="eno" Member="Eno" Type="System.String" DbType="Char(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dept" Member="Dept" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="prjcode" Member="Prjcode" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.holidays" Member="Holidays">
+    <Type Name="Holidays">
+      <Column Name="Holiday_Date" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Holiday_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NullFunctionCheck" Member="NullFunctionCheck">
+    <Type Name="NullFunctionCheck">
+      <Column Name="serialNo" Member="SerialNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="loc" Member="Loc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="age" Member="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="occupation" Member="Occupation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Students" Member="Students">
+    <Type Name="Students">
+      <Column Name="StdName" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Marks_Scored" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

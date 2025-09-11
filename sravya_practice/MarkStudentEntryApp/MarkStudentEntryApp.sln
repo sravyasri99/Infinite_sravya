@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36128.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkStudentEntryApp", "MarkStudentEntryApp\MarkStudentEntryApp.csproj", "{ADB8BB04-4D4A-47B5-9920-9D345329A93B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADB8BB04-4D4A-47B5-9920-9D345329A93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB8BB04-4D4A-47B5-9920-9D345329A93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB8BB04-4D4A-47B5-9920-9D345329A93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB8BB04-4D4A-47B5-9920-9D345329A93B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B657AD5E-E892-4A2B-A41C-3F15FDE6EE93}
+	EndGlobalSection
+EndGlobal
